@@ -1,0 +1,28 @@
+import pandas as pd 
+
+df1 = pd.DataFrame({'Salario': [30000, 45000, 30000],
+                    'Antiguedad': [9, 13, 12],},
+                     index = [1, 2, 3])
+
+df2 = pd.DataFrame({'Ciudad': ['Iguala', 'Acapulco', 'Chilpancingo' ],
+                    'Jerarquía': ['Baja', 'Alta', 'Media']},
+                    index = [1, 2, 4])
+
+print('Datos del data frame 1')
+print(df1)
+print('\nDatos del data frame 2')
+print(df2)
+
+print('\nDatos del data frame unido')
+df_unido = df1.join(df2)
+print(df_unido)
+
+# PROBANDO EL VALOR HOW POR DEFECTO QUE ES LEFT
+df_unido_left = df1.join(df2, how='left')
+print(df_unido_left)
+
+# PROBANDO CON EL VALOR HOW=RIGHT
+df_unido_inner = df1.join(df2, how='inner')
+print(df_unido_inner)
+
+

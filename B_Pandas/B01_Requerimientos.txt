@@ -1,0 +1,31 @@
+¿QÉ ES PANDAS?
+
+• Definición: Pandas es una biblioteca de software (paquete) que agrega funcionalidades a Python 
+  para la manipulación y el análisis de datos.
+• Usos Principales: Se utiliza principalmente para la limpieza de datos, análisis exploratorio, 
+  y visualización de datos estadísticos.
+
+IMPORTANCIA DE PANDAS EN DATA SCIENCE
+
+• Facilita el Manejo de Datos: Pandas simplifica el manejo de datos, para enfocarnos en el análisis.
+• Adaptado a Diferentes Fuentes de Datos: Puede trabajar con una variedad de formatos de datos, como CSV, 
+  Excel, bases de datos SQL, entre otros.
+• Esencial para Análisis de Datos: Es una herramienta clave en cualquier flujo de trabajo de Data Science 
+  para la preparación y exploración de datos.
+
+IMPORTACÓN DE PANDAS.
+
+• ¿Dónde está Pandas?: A pesar de que Pandas no forma parte de la estructura original de Python, es una 
+  librería adicional que Anaconda instaló en nuestro ordenador al mismo momento que instaló Python.
+• Importar Pandas: A pesar de que ya está instalado, debes importarlo a tu entorno de trabajo (cuademo) 
+  para utilizarlo en el código de python.
+• Comando de importación: import pandas as pd, O FROM PANDAS IMPORT [* | metodo | metodos]
+
+ENTORNOS VIRTUALES (python3 -m (modules) NombreModulo)
+
+  pip3 install pandas    pip3 freeze       pip3 freeze > archivo.txt
+  python3 -m pip install -r requirements.txt
+
+TIPOS DE DATOS EN PANDAS
+ Series
+ DataFrames
