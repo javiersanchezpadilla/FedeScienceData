@@ -1,8 +1,25 @@
-# Simulador de maquina de cambio de divisas
+""" Crear un código que simule el funcionamiento de una máquina de cambio de divisas. Por el momento 
+    nuestra máquina sólo recibe dólares y devuelve pesos.
+    La máquina va a necesitar disponer de variables que le brinden la siguiente información:
+    ** Nombre del usuario.
+    ** Fecha en que se realiza la operación.
+    ** Momento del día (día, tarde o noche).
+    ** Cantidad de dólares a cambiar.
+
+    Con todo eso, la máquina va a imprimir en pantalla (en diferentes líneas por supuesto) un 
+    mensaje que incluya los siguientes
+    Requisitos:
+    Un saludo de bienvenida
+    Información de la cantidad de dólares que va a entregar el usuario
+    Información de la cantidad de euros que va a recibir
+    Detalle específico de cuántos billetes de 200 pesos, 100 pesos, 50 pesos, 20 pesos, 
+    monedas de 10, 5 y 1 peso, y el saldo en monedas que le serán entregados
+    Un saludo de despedida
+"""
 
 nombre = "Javier"
-fecha = "20/01/2025"
-saludo = "Bunos dias"
+fecha = "30/08/2025"
+saludo = "Buenos dias"
 
 bienvenida = saludo + " " + nombre + " Hoy es " \
              + fecha + ". Bienvenido al Servicio de cambio de divisas"
@@ -36,3 +53,4 @@ print(f'Billetes de 20 {billetes_20}')
 print(f'Monedasd de 10 {monedas_10}')
 print(f'Monedasd de 5 {monedas_5}')
 print(f'Monedasd de 1 {monedas_1}')
+

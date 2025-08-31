@@ -1,3 +1,5 @@
+"""Ejemplo de uso de la función type() en Python"""
+
 numero = 42
 flotante = 3.1416
 palabra = "Hola"

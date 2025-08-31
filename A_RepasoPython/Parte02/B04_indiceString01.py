@@ -15,3 +15,4 @@ print(palabra[:40])     # No importa que nos pasemos
 # imprimir desde el inicio hasta el final saltando de dos en dos
 print(palabra[0:10:2])
 print(palabra[0:10:2].upper())
+print(palabra[::-1])
