@@ -21,19 +21,23 @@ Este ejercicio es útil para entender cómo funcionan las listas en Python y có
 pueden utilizar para almacenar y manipular colecciones de datos.
 """
 
+# Creamos una lista con numeros del 1 al 5
 numeros = [1, 2, 3, 4, 5]
 print(numeros)
 
+# Agregamos el valor 6 al final de la lista
 numeros.append(6)
 print(numeros)
 
+# Eliminamos el primer elemento de la lista
 numeros.remove(numeros[0])
 print(numeros)
 
+# Cambiamos el valor del indice 1 por el valor 7
 numeros[1] = 7
 print(numeros)
 
+# Ordenamos la lista
 numeros.sort()
 print(numeros)
-
 

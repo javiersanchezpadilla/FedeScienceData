@@ -18,6 +18,6 @@ print('-----------------------')
 palabra='Hola a todos'
 for a in range(len(palabra)):
     print(a)
-
+print('-----------------------')
 for i in range(10, 0, -2):
     print(i)

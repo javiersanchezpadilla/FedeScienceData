@@ -13,3 +13,9 @@ primero, *resto = numeros
 print(numeros)
 print(primero)  # Imprime 1
 print(resto)  # Imprime [2, 3, 4, 5, 6]
+
+a, b, c, *_ = numeros
+print(a)
+print(b)
+print(c)
+print(_)

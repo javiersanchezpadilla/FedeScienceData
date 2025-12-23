@@ -13,8 +13,8 @@ crea una sublista llamada sublista que contenga solo los elementos desde el
 lista1 = [1, 2, 3]
 lista2 = [4, 5, 6]
 combinada = lista1 + lista2
-print(combinada)
+print(combinada)            # [1, 2, 3, 4, 5, 6]
 repetida = lista1 * 3
-print(repetida)
+print(repetida)             # [1, 2, 3, 1, 2, 3, 1, 2, 3]
 sublista = combinada[1:4]
-print(sublista)
+print(sublista)             # [2, 3, 4]

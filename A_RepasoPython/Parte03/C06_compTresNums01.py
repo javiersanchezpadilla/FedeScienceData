@@ -1,6 +1,6 @@
-num1 = 2
-num2 = 3
-num3 = 1
+num1 = 1 # 1 1 1 3 2
+num2 = 1 # 1 3 2 2 3
+num3 = 2 # 1 2 3 1 1
 
 menor = None
 medio = None

@@ -18,7 +18,12 @@ print(edades)
 # metodos de los diccionarios
 print(edades.keys())        # obtiene solo las llaves
 print(edades.values())      # obtiene solo los valores
-print(edades.items())       # items convierte en tupla de listas
+print(edades.items())       # items convierte en lista de tuplas
 print(edades.get('juan'))   # obtiene no por indice
 edades.update({'carlos': 15})
 print(edades)
+
+print('Esto es lo último ')
+otronuevo = edades.items()
+print(otronuevo)
+print(type(otronuevo))

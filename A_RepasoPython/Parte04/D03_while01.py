@@ -12,3 +12,4 @@ while contador < 10:
     if contador == 8:
         break
     print(contador)
+    
