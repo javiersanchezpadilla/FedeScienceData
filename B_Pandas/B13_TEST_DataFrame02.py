@@ -7,7 +7,8 @@
 
 import pandas as pd 
 
-df = pd.read_csv('/home/javier/Documentos/Programas/Python/FedeScienceData/\
+datos_clima = pd.read_csv('/home/javier/Documentos/Programas/Python/FedeScienceData/\
 Z_ArchivosExternos/clima.csv')
-describe_df = df.describe()
+
+describe_df = datos_clima.describe()
 print(describe_df)

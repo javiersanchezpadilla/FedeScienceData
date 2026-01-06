@@ -7,6 +7,7 @@
 """
 import pandas as pd 
 
-df = pd.read_csv('/home/javier/Documentos/Programas/Python/FedeScienceData/Z_ArchivosExternos/clima.csv')
-print(df)
+datos_clima = pd.read_csv('/home/javier/Documentos/Programas/Python/FedeScienceData/\
+Z_ArchivosExternos/clima.csv')
 
+print(datos_clima)

@@ -1,10 +1,8 @@
-""" Conversion de arrays de numpy a data frames
-    de pandas.
+""" Conversion de arrays de numpy a data frames de pandas.
     Asignado nombres adecuados a las columnas
     
-    Los Arrays de numpy no manejan textos, por lo
-    que al conertir le asigna un nombre de columna
-    que es un número."""
+    Los Arrays de numpy no manejan textos, por lo que al convertir 
+    le asigna un nombre de columna que es un número."""
 
 import numpy 
 import pandas

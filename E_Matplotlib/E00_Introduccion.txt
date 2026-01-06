@@ -1,0 +1,8 @@
+Matplotlib. 
+
+Es una biblioteca creada para la visaulización de datos
+
+Instalacion de dependenciasl 
+    $ pip3 install matplotlib
+
+    

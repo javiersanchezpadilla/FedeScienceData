@@ -8,9 +8,11 @@
 
 import pandas as pd 
 
-df = pd.read_csv('/home/javier/Documentos/Programas/Python/FedeScienceData/\
+datos_clima = pd.read_csv('/home/javier/Documentos/Programas/Python/FedeScienceData/\
 Z_ArchivosExternos/clima.csv')
-head_df = df.head(1)
-tail_df = df.tail(1)
+
+head_df = datos_clima.head(1)
+tail_df = datos_clima.tail(1)
+
 print(head_df)
 print(tail_df)

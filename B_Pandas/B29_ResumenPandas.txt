@@ -1,0 +1,231 @@
+Practicaremos la limpieza de datos
+
+Metodos especiales de DataFRame
+===============================
+    df.head()           Muestra por defecto cinco lineas del encabezado
+    df.head(3)          Muestra el número de lineas específicado
+    df.tail()           Al igual que head muestra los últimos 5 registros
+    df.tail(4)          En caso de especificar el valor es lo que se mostrará
+    df.info()           Devuelve un resumen del dataFrame
+    df.describe()       Retorna una descripción estadístico del dataFrame
+    df.isnull()         Devuelve con valores booleanos la existencia de nulos
+    df.isnull().sum()   Suma los valores nulos por serie (Columna)
+    df.dropna()         Elimina registros con valores nulos (na = not available)
+                        no es la mejor practica ya que altera mas el resultado
+    df.fillna(criterio) Rellena los valores no disponibles con un diccionario de
+                        criterios validos basado en cada una de las series del 
+                        dataFrame.
+
+                        >>> La seie "Cantidad" para nulos le asignará cero (0)
+                        >>> La serie "Precio" para nulos le asignara el valor promedio
+                        criterio = {"Cantidad" : 0, "Precio" : df["Precio"].mean()}
+                        valores_rellenados = df.fillna(criterio)
+
+                        >>> no hace falta reasignarlo, cambia el original con inplace=True
+                        df.fillna(0, inplace=True)
+
+    df.dropduplicates() Elimina registros totalmente exactos (todas las series iguales)
+                        ,dropduplicates(subset="nombre_serie") elimina solo duplicados
+                        de la serie especifica definida
+
+                        >>> Elimina los duplicados de la serie "ID" del DataFrame
+                        df_sin_duplicados = df.drop_duplicates(subset='ID')
+
+    df.sort_values()    >>> Podemos ordenar por una serie (columna)
+                        df_ordenado = df.sort_values(by='rating')
+
+                        >>>Para orden descendente                 vvvvvvvvvvvvvvv
+                        df_ordenado = df.sort_values(by='rating', ascending=False)
+
+                        >>> Para mas de un criterio de ordenamiento usamos listas
+                        df_ordenado = df.sort_values(by=['rating', 'recaudación(M)'])
+
+                        >>> Para mas de un criterio de ordenamiento y cambiar el orden individual
+                        df_ordenado = df.sort_values(by=['rating', 'año'], ascending=[False, True])
+
+    df.groupby(serie)   Permite agrupar (aumular) por una serie específica
+                        >>> Agrupar por genero y conocer su promedio
+                        df_agrupado = df.groupby('género')['rating'].mean()
+                        >>> Agrupar por año y sumar lo recaudado por año en ese grupo
+                        df_agrupado = df.groupby('año')['recaudación(M)'].sum()
+
+                        >>> ¿Cuál es el producto más vendido?
+                        prod_mas_vendido = df.groupby('Producto')['Cantidad'].sum()
+                        prod_mas_vendido = prod_mas_vendido.sort_values(ascending=False)
+                        print(prod_mas_vendido.head(1))
+
+                        >>> ¿Cuál es el mes con más ventas?
+                        meses_lista = []        # creamos una lista para los meses de la serie
+                        for mes in df['Fecha']: # tomamos fecha por fecha y extraemos el mes
+                            meses_lista.append(mes.month)   # agregamos el mes a la lista
+
+                        df['Meses'] = meses_lista       # agregamos una nueva serie al data frame
+                        # creamos DataFrame agrupamos por mes, sumamos ventas, ordenamos por valores
+                        ventas_mes = df.groupby('Meses')['Total Venta'].sum().sort_values(ascending=False)
+                        print(ventas_mes.head(1))
+
+
+
+                        UNIR DATA FRAMES
+                        ----------------
+    pd.merge(df1, df2)  Permite unir dos data frame con estructuras similares
+                        df1 = pd.DataFrame({'ID' : [1, 2, 3],
+                                            'Nombre' : ['Ana', 'Luis', 'Carlos']})
+                        df2 = pd.DataFrame({'ID' : [1, 2, 4],
+                                            'Edad' : [25, 30, 22]})
+
+                        >>> Unir dos data frame por una serie en comun (columna)
+                        df_combinado = pd.merge(df1, df2, on='ID')
+
+                        >>> Para solo apariencias exactas (es igual al anterior)
+                        df_combinado = pd.merge(df1, df2, on='ID', how='inner')
+
+                        >>> todos los campos (outter), Nan para no apariencias
+                        df_combinado = pd.merge(df1, df2, on='ID', how='outer')
+
+                        >>> todos los campos del lado izquierdo (Nan = NULL de SQL)
+                        df_combinado = pd.merge(df1, df2, on='ID', how='left')
+
+                        >>> todos los campos del lado derecho (Nan = NULL de SQL)
+                        df_combinado = pd.merge(df1, df2, on='ID', how='right')
+
+                        >>> Para mantener los indices originales de cada Data Frame
+                        df_combinado = pd.merge(df1, df2, left_index=True, right_index=True)
+
+                        COMBINAR DATA FRAMES
+                        --------------------    
+    df1.join(df2)       df1 = pd.DataFrame({'Salario':[300, 450, 380], 
+                                            'Antig':[9, 13, 12]}, index=[1, 2, 3])
+                        df2 = pd.DataFrame({'Ciudad' : ['Madrid', 'Barcel', 'Valen'],
+                                            'Jerarquia' : ['B', 'A', 'M']}, index=[1, 2, 4])
+                        df_unido = df1.join(df2)
+
+                        >>> El mismo resultado ya que por defecto how=join
+                        df_unido = df1.join(df2, how='inner')
+
+                        >>> Unido por la izquierda
+                        df_unido = df1.join(df2, how='left')
+
+                        >>> Unido por la derecha
+                        df_unido = df1.join(df2, how='right')
+
+                        >>> Creación de índice a partir de una serie del data frama
+                        df_b = pd.DataFrame({'id': [1, 2, 3], 'Edad': [25, 30, 35]})
+                        df_b.set_index('id', inplace=True)
+
+                        >> Lo mismo que la linea anterior pero ejecutando el método de inmediato
+                        df_b = pd.DataFrame({'id': [1, 2, 3], 
+                               'Edad': [25, 30, 35]}).set_index('id')    
+
+                        CONCATENAR DATA FRAMES.
+                        -----------------------
+
+                        df1 = pd.DataFrame({'Nombre' : ['Juan', 'Gabriela'], 'Edad' : [23, 31]})
+                        df2 = pd.DataFrame({'Nombre' : ['Carmela', 'Max'], 'Edad' : [34, 25]})
+
+                        >>> por defecto axis=0 por lo que concatena verticalmente
+                        df_concatenado = pd.concat([df1, df2])
+
+                        >>> si queremos concatenar horizontalmente axis=1
+                        df_concatenado2 = pd.concat([df1, df2], axis=1)
+
+                        >>> Para ignorar los indices orignales y genere nuevos índices
+                        df_concatenado3 = pd.concat([df1, df2], ignore_index=True)
+
+                        >>> Para indicar las referencias de los índices originales
+                        df_concatenado4 = pd.concat([df1, df2], keys=['df1', 'df2'])
+                        df_concatenado4 = pd.concat([df1, df2], keys=['enero', 'febrero'])
+
+    (R) (W) FORMATOS    >>> Leer un archivo en EXCEL
+                        ruta_excel = "/home/.../archivo.xlsx"
+                        df = pd.read_excel(ruta_excel)
+
+                        >>> Leer un archivo XML
+                        ruta_xml = "/home/.../archivo.xml"
+                        df2 = pd.read_xml(ruta_xml)
+
+                        >>> Escribir un archivo EXCEL
+                        ruta_excel = "/home/.../archivo.xlsx"
+                        df.to_excel(ruta)               # Generamos el archivo incluyendo los indices
+                        df.to_excel(ruta, index=False)  # Generamos el archivo sin los indices
+
+                        >>> Creción de archivos en formato CSV
+                        ruta_csv = "/home/.../archivo.csv"
+                        df.to_csv(ruta, index=False)
+
+
+
+    MANEJO DE FECHAS    GENERAR RANGOS DE FECHAS
+                        ------------------------
+                        >>> Generar a partir de una fecha seis periodos (seis dias)
+                        fechas = pd.Series(pd.date_range('20260101', periods=6))
+
+                        >>> Con frecuencias por dias freq='D', mes freq='M', 'Y', 'H', 'MIN'
+                        fechas = pd.Series(pd.date_range('20260101', periods=6, freq='D'))
+
+                        >>> Generar por cada 5 dias
+                        fechas = pd.Series(pd.date_range('20260101', periods=6, freq='5D'))
+
+                        CAMBIAR TIPO DE DATO A FECHA EN IMPORTACIONES DE CSVs
+                        -----------------------------------------------------
+                        Al importar los csv las fechas son strings
+                        >>> Para convertir un str a fecha, si el formato es 02/01/2019
+                        df['Fecha'] = pd.to_datetime(df['Fecha'], format="%d/%m/%Y")
+
+                        >>> Extraer datos específicos de la fecha .year, .month, .day, 
+                            .hour, .minute, .second
+                        print(f'El año {df['Fecha'][44].year}')
+
+                        >>> Para sumar 5 dias a las fechas
+                        df_mas_5 = df['Fecha'] + pd.Timedelta(days=5)
+
+                        >>> EJEMPLO DE FECHAS cambiar el formato de una fecha
+                        data = {'Fecha': ['2024-03-19', '2024-03-20'],
+                                'Producto': ['Manzanas', 'Peras']}
+
+                        df_ventas = pd.DataFrame(data)
+                        # convierte a fecha date time de pandas
+                        df_ventas['Fecha'] = pd.to_datetime(df_ventas['Fecha'], format='%Y-%m-%d')
+                        # convierte de date time a texto nuevamente con el formato deseado
+                        df_ventas['Fecha'] = df_ventas['Fecha'].dt.strftime('%d/%m/%Y')
+
+
+Métodos especiales aplicados a Series (incluso dentro del dataFrame)
+====================================================================
+    df["serie"].astype(int)     Cambia una serie al tipo de dato seleccionado
+                                df["serie"] = df["serie"].astype(int)
+    FILTRADOS                   Podemos crear filtros para elección de valores
+
+                                mi_serie = pd.Series([5, 10, 15, 20, 25])
+                                filtro = mi_serie > 15  # genera una serie boleana
+                                serie_filtrada = mi_serie[filtro]
+
+                                Para strings podemos usar el método str
+                                ---------------------------------------
+                                frutas = pd.Series(["platano", "manzana", "melon", "uva"])
+                                filtro_str = frutas.str.contains("m")
+                                frutas_con_m = mi_serie2[filtro_str]
+                                print(frutas_con_m)
+
+    AGREGACIONES                Datos acumulados de las series
+                                ------------------------------
+                                numeros = pd.Series([x for x in range(10, 51, 10)])
+                                promedio= numeros.mean()
+                                suma = numeros.sum()
+                                maximo = numeros.max()
+                                minimo = numeros.min()
+
+    MANEJO DE FECHAS            Crear series de fechas
+                                ----------------------
+                                >>> Generar a partir de una fecha seis periodos 
+                                fechas = pd.Series(pd.date_range('20260101', periods=6))
+
+                                >>> Generar con una frecuencia de por dia (igual al anterior)
+                                    por mes freq='M', año 'Y', hora 'H', minuto 'MIN', 5 dias '5D'
+                                fechas = pd.Series(pd.date_range('20260101', periods=6, freq='D'))
+
+
+Atributos especiales de DataFrame
+=================================
+    df.shape            Devuelve el número de filas y columnas del DataFrame
+    df.columns          Devuelve los nombres de las columnas
