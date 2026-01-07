@@ -11,7 +11,8 @@
     desviación estandar (cuanto se alejan los demas números va ser un valor 
     cercano al 1 (uno) (entre -1 y 1).
     En el grafico vamos a ver que la mayor parte de los puntos esta en el valor 0
-    y el resto delos valores que se alejan (-1, -2, -3, 1, 2, 3) tienden a cero
+    y el resto delos valores que se alejan (-1, -2, -3, 1, 2, 3) tienden a uno, eso
+    nos permite tener una grafica mas uniforme
 """
 
 #import pandas as pd 

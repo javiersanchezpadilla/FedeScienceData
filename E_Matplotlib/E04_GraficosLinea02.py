@@ -17,8 +17,10 @@ MARCADORES:
     Indican los puntos de datos en las gráficas. 
     'o' circulos       '+' cruces
     '^' triangulos     'x' equis
-        hacia arriba   'D' diamantes
+        hacia arriba   'd' diamantes
     's' cuadrados      '*' estrellas
+    'v' triangulos
+        hacia abajo
     
 ESTILOS DE LINEA:
 -----------------
