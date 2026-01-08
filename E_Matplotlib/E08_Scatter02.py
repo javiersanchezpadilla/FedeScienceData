@@ -1,4 +1,5 @@
-""" La palabra SCATTER significa algo así como desparramar
+""" DIAGRAMAS DE DISPERSIÓN
+    La palabra SCATTER significa algo así como desparramar
 
     np.linspace(0, 10, 30)  va a agenerar un conjunto de datos entre 0 y 10 y
                             dentro de ese rango va a crear 30 valores que 
