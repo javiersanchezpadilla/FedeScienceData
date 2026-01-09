@@ -13,7 +13,7 @@ df = pd.DataFrame({'etiquetas' : ['Manzanas', 'Platanos', 'Naranjas', 'Uvas'],
                    'cantidad' : [30, 60, 80, 20]})
 
 # PAra aumentar las etiquetas de las frutas
-plt.pie(df['cantidad'], 
-           labels=df['etiquetas'])
+plt.pie(df['cantidad'],                 # Se representa solo el eje "x"
+           labels=df['etiquetas'])      # Se asignan las etiquetas al gráfico
 
 plt.show()

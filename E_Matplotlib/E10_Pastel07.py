@@ -26,14 +26,16 @@ df = pd.DataFrame({'etiquetas' : ['Manzanas', 'Platanos', 'Naranjas', 'Uvas'],
                    'cantidad' : [30, 60, 80, 20]})
 
 # para cambiar el color de las letras
-plt.pie(df['cantidad'], 
-        labels=df['etiquetas'], 
-        autopct='%1.4f%%', 
-        colors=['#87CEEB', '#6495ED', '#000080', '#40E0D0'],
-        shadow=True, explode=(0, 0, 0, 0.5),
-        textprops={'color': 'white', 'fontsize': 14})
+plt.pie(df['cantidad'],                                              # Se representa solo el eje "x"
+        labels=df['etiquetas'],                                      # Se asignan las etiquetas al gráfico
+        autopct='%1.4f%%',                                           # se formatean las etiquetas de los valores
+        colors=['#87CEEB', '#6495ED', '#000080', '#40E0D0'], # se cambian los colores de las rebanadas
+        shadow=True,                                                 # se asigna sombra al gráfico
+        explode=(0, 0, 0, 0.5),                                      # se separa una rebanada del gráfico
+        textprops={'color': 'white', 'fontsize': 14})                # se cambian las propiedades de los textos
 
 # si queremos colocarle un titulo al gráfico
 plt.title('Las frutas preferidas de mata')
 
 plt.show()
+

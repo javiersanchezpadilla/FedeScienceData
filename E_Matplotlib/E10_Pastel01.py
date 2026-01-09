@@ -10,6 +10,6 @@ df = pd.DataFrame({'etiquetas' : ['Manzanas', 'Platanos', 'Naranjas', 'Uvas'],
                    'cantidad' : [30, 60, 80, 20]})
 
 # PAra visualizar el grafico simple
-plt.pie(df['cantidad'])
+plt.pie(df['cantidad'])         # Se representa solo el eje "x"
 
 plt.show()

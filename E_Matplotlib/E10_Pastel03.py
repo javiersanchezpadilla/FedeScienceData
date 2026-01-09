@@ -22,8 +22,8 @@ df = pd.DataFrame({'etiquetas' : ['Manzanas', 'Platanos', 'Naranjas', 'Uvas'],
 
 # Ahora queremos ver el porcentaje que representa cada fruta
 # autopct (auto porcentaje) el formato es '%1.1f%%'
-plt.pie(df['cantidad'], 
-        labels=df['etiquetas'], 
-        autopct='%1.4f%%')
+plt.pie(df['cantidad'],                # Se representa solo el eje "x"
+        labels=df['etiquetas'],        # Se asignan las etiquetas al gráfico
+        autopct='%1.4f%%')             # se formatean las etiquetas de los valores
 
 plt.show()

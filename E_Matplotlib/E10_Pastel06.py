@@ -27,11 +27,12 @@ df = pd.DataFrame({'etiquetas' : ['Manzanas', 'Platanos', 'Naranjas', 'Uvas'],
 # explode = (0, 0, 0, 0.5)  0 no se separa el elemento 1, ni el 2 
 # ni el 3, pero si el elemento 4 se separa 0.5
 # si lo deseamos podemos separar todas las parte explode=(0.1, 0.1, 0, 0.5)
-plt.pie(df['cantidad'], 
-        labels=df['etiquetas'], 
-        autopct='%1.4f%%', 
-        colors=['#87CEEB', '#6495ED', '#000080', '#40E0D0'],
-        shadow=True, 
-        explode=(0, 0, 0, 0.5))
+plt.pie(df['cantidad'],                                              # Se representa solo el eje "x"
+        labels=df['etiquetas'],                                      # Se asignan las etiquetas al gráfico
+        autopct='%1.4f%%',                                           # se formatean las etiquetas de los valores
+        colors=['#87CEEB', '#6495ED', '#000080', '#40E0D0'], # se cambian los colores de las rebanadas
+        shadow=True,                                                 # se asigna sombra al gráfico
+        explode=(0, 0, 0, 0.5))                                      # se separa una rebanada del gráfico
+
 
 plt.show()

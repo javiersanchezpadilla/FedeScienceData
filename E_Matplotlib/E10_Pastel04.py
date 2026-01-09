@@ -21,9 +21,13 @@ df = pd.DataFrame({'etiquetas' : ['Manzanas', 'Platanos', 'Naranjas', 'Uvas'],
                    'cantidad' : [30, 60, 80, 20]})
 
 # Si quiere cambiar los colores
-plt.pie(df['cantidad'], 
-        labels=df['etiquetas'], 
-        autopct='%1.4f%%', 
-        colors=['#87CEEB', '#6495ED', '#000080', '#40E0D0'])
+plt.pie(df['cantidad'],                                              # Se representa solo el eje "x"
+        labels=df['etiquetas'],                                      # Se asignan las etiquetas al gráfico
+        autopct='%1.4f%%',                                           # se formatean las etiquetas de los valores
+        colors=['#87CEEB', '#6495ED', '#000080', '#40E0D0'])   # se cambian los colores de las rebanadas
 
 plt.show()
+
+plt.pie(df['cantidad'],                
+        labels=df['etiquetas'],        
+        autopct='%1.4f%%')             
