@@ -6,3 +6,4 @@
 
 palabra = "computadora"
 print(palabra[5:9])
+print(palabra[-6:-2])

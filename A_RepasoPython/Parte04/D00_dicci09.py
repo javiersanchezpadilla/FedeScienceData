@@ -1,7 +1,9 @@
-# # Creando un diccionario para guardar datos de contacto
-# contactos = { "Juan": "555-1234", "Ana": "222-5678", "Pedro": "333-9012"}
+# Creando un diccionario para guardar datos de contacto
+contactos = { "Juan": "555-1234", "Ana": "222-5678", "Pedro": "333-9012"}
 
-# del contactos["Pedro"] o contactos.pop('Pedro')
+print(contactos)
+del contactos["Pedro"]  #o contactos.pop('Pedro')
+print(contactos)
 
 
 # # Accediendo a un valor
@@ -21,15 +23,15 @@
 # for nombre, telefono in contactos.items():
 #     print(nombre, ":", telefono)
 
-estudiantes = {
-    "Juan": [20, ["Matemáticas", "Física", "Historia"]],
-    "Ana": [22, ["Biología", "Química", "Literatura"]],
-    "Pedro": [19, ["Programación", "Bases de Datos", "Redes"]]
-}
+# estudiantes = {
+#     "Juan": [20, ["Matemáticas", "Física", "Historia"]],
+#     "Ana": [22, ["Biología", "Química", "Literatura"]],
+#     "Pedro": [19, ["Programación", "Bases de Datos", "Redes"]]
+# }
 
-for nombre, lista_valores in estudiantes.items():
-    print(nombre)
-    print(lista_valores)
+# for nombre, lista_valores in estudiantes.items():
+#     print(nombre)
+#     print(lista_valores)
 
 
     # print(f'{nombre} tiene los siguientes datos')

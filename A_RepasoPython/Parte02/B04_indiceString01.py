@@ -16,3 +16,4 @@ print(palabra[:40])     # No importa que nos pasemos
 print(palabra[0:10:2])
 print(palabra[0:10:2].upper())
 print(palabra[::-1])
+print(palabra.index('tod'))

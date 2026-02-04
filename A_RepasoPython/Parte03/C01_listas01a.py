@@ -39,11 +39,11 @@ mis_listas[2].append('Wendy')   # agrega al FINAL DE UNA SUBLISTA
 print('Agregamos a la sublista 2 el elemento Wendy')
 print(mis_listas)
 
-print('Cambiamos pablo por joaquin')
+print('\nCambiamos pablo por joaquin')
 mis_listas[2][0] = 'Joaquin'    # cambiar Pablo por Joaquin
 print(mis_listas)
-mis_listas[2]
-mis_listas[2][2]
+print(mis_listas[2])
+print(mis_listas[2][2])
 
 print('\nPodemos realizaar SLICING')
 print(frutas)
@@ -73,3 +73,31 @@ print(nueva_lista)
 print('\nPodemos tener listas combinadas (listas), tuplas, etc')
 lista_combinada = [[1, 2, 3], ("a", "b", "c"), [[1, 2], (100, 200, 300, 200)] ]
 print(lista_combinada)
+
+# desempaquetando la lista
+print('DEsempaquetando la lista')
+print(lista_numeros)
+# desempaquetando todos los elementos uno a uno
+a, b, c, d, e, f ,g = lista_numeros
+print(a)
+print(b)
+print(c)
+print(d)
+print(e)
+print(f)
+print(g)
+
+# deempaquetando solo el primer elemento
+print('Desempaquetando solo el primer elemento')
+a, *_ = lista_numeros
+print(a)
+print(_)
+
+# desempaquetando solo el primer y el último elemento
+print('Desempaquetando el primero y el último elemento de la lista')
+a, *_, b = lista_numeros
+print(a)
+print(_)
+print(b)
+
+
